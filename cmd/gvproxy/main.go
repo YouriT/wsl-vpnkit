@@ -9,8 +9,8 @@ import (
 	"github.com/containers/gvisor-tap-vsock/pkg/types"
 	"github.com/containers/gvisor-tap-vsock/pkg/virtualnetwork"
 	"github.com/pkg/errors"
-	"github.com/sakai135/wsl-vpnkit/pkg/transport"
 	log "github.com/sirupsen/logrus"
+	"github.com/yourit/wsl-vpnkit/pkg/transport"
 	"golang.org/x/sync/errgroup"
 )
 

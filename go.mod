@@ -1,4 +1,4 @@
-module github.com/sakai135/wsl-vpnkit
+module github.com/yourit/wsl-vpnkit
 
 go 1.18
 

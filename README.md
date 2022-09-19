@@ -4,11 +4,9 @@ The `wsl-vpnkit` v0.3 script uses [gvisor-tap-vsock](https://github.com/containe
 
 The releases bundle the script together with the binaries in an [Alpine](https://alpinelinux.org/) distro.
 
-For v0.2, please see the [v0.2.x branch](https://github.com/sakai135/wsl-vpnkit/tree/v0.2.x).
-
 ## Setup
 
-Download the prebuilt file `wsl-vpnkit.tar.gz` from the [latest release](https://github.com/sakai135/wsl-vpnkit/releases/latest) and import the distro into WSL 2. Running the distro will show a short intro and exit.
+Download the prebuilt file `wsl-vpnkit.tar.gz` from the [latest release](https://github.com/yourit/wsl-vpnkit/releases/latest) and import the distro into WSL 2. Running the distro will show a short intro and exit.
 
 ```pwsh
 # PowerShell
@@ -25,8 +23,8 @@ wsl.exe -d wsl-vpnkit service wsl-vpnkit start
 
 ### Notes
 
-* Ports on the WSL 2 VM are accessible from the Windows host using `localhost`.
-* Ports on the Windows host are accessible from WSL 2 using `host.internal`, `192.168.67.2` or [the IP address of the host machine](https://docs.microsoft.com/en-us/windows/wsl/networking#accessing-windows-networking-apps-from-linux-host-ip).
+- Ports on the WSL 2 VM are accessible from the Windows host using `localhost`.
+- Ports on the Windows host are accessible from WSL 2 using `host.internal`, `192.168.67.2` or [the IP address of the host machine](https://docs.microsoft.com/en-us/windows/wsl/networking#accessing-windows-networking-apps-from-linux-host-ip).
 
 ### Update
 
@@ -36,7 +34,7 @@ To update, unregister the existing distro and import the new version.
 # PowerShell
 
 wsl --unregister wsl-vpnkit
-wsl --import wsl-vpnkit $env:USERPROFILE\wsl-vpnkit wsl-vpnkit.tar.gz --version 2
+wsl --import wsl-vpnkit C:\path\to\wsl-vpnkit wsl-vpnkit.tar.gz --version 2
 ```
 
 ### Uninstall
@@ -47,7 +45,7 @@ To uninstall, unregister the distro.
 # PowerShell
 
 wsl --unregister wsl-vpnkit
-rm -r $env:USERPROFILE\wsl-vpnkit
+rm -r C:\path\to\wsl-vpnkit
 ```
 
 ### Build
@@ -55,7 +53,7 @@ rm -r $env:USERPROFILE\wsl-vpnkit
 This will build and import the distro.
 
 ```sh
-git clone https://github.com/sakai135/wsl-vpnkit.git
+git clone https://github.com/yourit/wsl-vpnkit.git
 cd wsl-vpnkit/
 
 ./distro/test.sh
@@ -68,7 +66,7 @@ The `wsl-vpnkit` script can be used as a normal script in your existing distro. 
 ```sh
 # download wsl-vpnkit
 VERSION=v0.3.x
-wget https://github.com/sakai135/wsl-vpnkit/releases/download/$VERSION/wsl-vpnkit.tar.gz
+wget https://github.com/yourit/wsl-vpnkit/releases/download/$VERSION/wsl-vpnkit.tar.gz
 tar --strip-components=1 -xf wsl-vpnkit.tar.gz app/wsl-vpnkit files/wsl-gvproxy.exe files/wsl-vm
 rm wsl-vpnkit.tar.gz
 

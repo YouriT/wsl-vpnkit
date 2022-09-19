@@ -6,7 +6,9 @@ WSL2_GATEWAY_IP="$(cat /etc/resolv.conf | awk '/^nameserver/ {print $2}')"
 WSL2_VM_IP="$(ifconfig eth0 | awk '/inet /{print substr($2, 6)}')"
 WSL2_TAP_NAME=eth0
 WIN_STORE="/files"
-WIN_PATH="$USERPROFILE/wsl-vpnkit"
+if [ -z "$WIN_PATH" ]; then
+  WIN_PATH="$USERPROFILE/wsl-vpnkit"
+fi
 CONF_PATH="$WIN_PATH/wsl-vpnkit.conf"
 GVPROXY_PATH="$WIN_PATH/wsl-gvproxy.exe"
 VM_PID=
