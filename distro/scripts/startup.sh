@@ -2,6 +2,9 @@
 
 LOG_PATH="/var/log/wsl-vpnkit.log"
 USERPROFILE=$(wslpath "$(powershell.exe -NoLogo -NoProfile -c 'Write-Host -NoNewline $env:USERPROFILE')")
+if [ -z "$WIN_PATH" ]; then
+  WIN_PATH="$USERPROFILE/wsl-vpnkit"
+fi
 VERSION="$(cat /app/version)"
 
 touch $LOG_PATH
@@ -17,7 +20,7 @@ Run the following commands from Windows or other WSL 2 distros to use.
 
 The following file will be copied if it does not already exist.
 
-    $USERPROFILE/wsl-vpnkit/wsl-gvproxy.exe
+    $WIN_PATH/wsl-vpnkit/wsl-gvproxy.exe
 
 Logs for wsl-vpnkit can be viewed here.
 
@@ -25,7 +28,7 @@ Logs for wsl-vpnkit can be viewed here.
 
 Config for wsl-vpnkit can be edited here.
 
-    $USERPROFILE/wsl-vpnkit/wsl-vpnkit.conf
+    $WIN_PATH/wsl-vpnkit/wsl-vpnkit.conf
 
 Run the following command to see the default values.
 
